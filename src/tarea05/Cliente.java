@@ -59,4 +59,43 @@ public class Cliente {
         return emparejador.matches();
 
     }
+
+    private Cliente(Cliente cliente) {
+        this.nombre = cliente.nombre;
+        this.direccion = cliente.direccion;
+        this.dni = cliente.dni;
+        this.localidad = cliente.localidad;
+        this.codigoPostal = cliente.codigoPostal;
+
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDni() {
+        return dni;
+
+    }
+
+   public String getDireccion() {
+        return direccion;
+
+    }
+
+    public String getLocalidad() {
+        return localidad;
+
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+
+    }
+
+    public int getIdentificador() {
+        return identificador;
+
+    }
+
 }
