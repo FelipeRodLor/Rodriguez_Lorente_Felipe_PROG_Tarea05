@@ -78,7 +78,7 @@ public class Cliente {
 
     }
 
-   public String getDireccion() {
+    public String getDireccion() {
         return direccion;
 
     }
@@ -96,6 +96,11 @@ public class Cliente {
     public int getIdentificador() {
         return identificador;
 
+    }
+
+    public String toString() {
+
+        return (dni + nombre + direccion + localidad + codigoPostal);
     }
 
 }
