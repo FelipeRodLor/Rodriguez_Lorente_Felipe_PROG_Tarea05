@@ -75,4 +75,11 @@ public class Turismo {
        
    }
   
+   public void setDisponible(boolean disponible){
+       this.disponible=disponible;
+   }
+   
+   public String toString(){
+       return (matricula + marca + modelo + cilindrada + disponible );
+   }
 }
