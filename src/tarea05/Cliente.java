@@ -50,8 +50,7 @@ public class Cliente {
 
     }
 
-    private boolean compruebaCodigoPostal(String codigoPostal
-    ) {
+    private boolean compruebaCodigoPostal(String codigoPostal) {
         Pattern patron = Pattern.compile("([0-9] {5})");
         Matcher emparejador;
         emparejador = patron.matcher(codigoPostal);

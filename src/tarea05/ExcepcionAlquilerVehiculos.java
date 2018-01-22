@@ -10,13 +10,16 @@ package tarea05;
  * @author Felipillo
  */
 public class ExcepcionAlquilerVehiculos extends RuntimeException {
+    
+    private static final long serialVersionUID=1;
 
-    /**
-     * @param args the command line arguments
-     */
-    public ExcepcionAlquilerVehiculos(String mensaje) {
-
-        super(mensaje);
+   
+    public ExcepcionAlquilerVehiculos (String mensaje){
+   
+    
+    
+    super (mensaje);
     }
-
+    
+    
 }
