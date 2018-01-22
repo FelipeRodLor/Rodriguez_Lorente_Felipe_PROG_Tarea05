@@ -53,4 +53,26 @@ public class Turismo {
         return emparejador.matches();
 
     }
+   
+   public String getMatricula(){
+       return matricula;
+    
+}
+   public String getMarca(){
+       return marca;
+      
+   }
+   public String getModelo(){
+       return modelo;
+       
+   }
+   public int getCilindrada(){
+       return cilindrada;
+       
+   }
+   public boolean getDisponible(){
+       return disponible;
+       
+   }
+  
 }
