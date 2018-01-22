@@ -21,6 +21,7 @@ public class Turismo {
     private boolean disponible;
     
     
+    
     public Turismo (String matricula, String marca, String modelo, int cilindrada){
         
        if (compruebaMatricula(matricula)) {

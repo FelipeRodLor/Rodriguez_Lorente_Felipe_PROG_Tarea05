@@ -21,6 +21,7 @@ public class Cliente {
     private String codigoPostal;
     private int identificador;
     private static int numClientes;
+    
 
     public Cliente(String nombre, String dni, String direccion, String localidad, String codigoPostal) {
 
