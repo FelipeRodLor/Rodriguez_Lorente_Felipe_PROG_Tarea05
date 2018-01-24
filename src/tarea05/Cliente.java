@@ -39,6 +39,9 @@ public class Cliente {
         } else {
             throw new ExcepcionAlquilerVehiculos("El Codigo postal introducido no es correcto");
         }
+        
+        numClientes++;
+        identificador = numClientes;
 
     }
 
