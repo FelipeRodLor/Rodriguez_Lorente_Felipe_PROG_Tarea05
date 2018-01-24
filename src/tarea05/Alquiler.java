@@ -14,7 +14,7 @@ import java.util.Date;
  * @author Felipillo
  */
 public class Alquiler {
-    
+
     private Date fecha;
     private int dias;
     private final SimpleDateFormat FORMATO_FECHA;
@@ -22,20 +22,35 @@ public class Alquiler {
     private final double PRECIO_DIA;
     private Cliente cliente;
     private Turismo turismo;
-    
-    public Alquiler (Cliente cliente, Turismo turismo){
-        
-      this.cliente= cliente;
-      this.turismo=turismo;
-      fecha = new  Date();
-      dias=0;
-      turismo.setDisponible(false);
-      
-      
+
+    public Alquiler(Cliente cliente, Turismo turismo) {
+
+        this.cliente = cliente;
+        this.turismo = turismo;
+        fecha = new Date();
+        dias = 0;
+        turismo.setDisponible(false);
+
     }
-/**
- * Crea un constructor con dos parámetros que además de inicializar los atributos
- * cliente y turismo, también inicialice la fecha a la fecha actual, dias a cero
- * y ponga el turismo como no disponible. Haz un commit.
- */  
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public int getDias() {
+        return dias;
+    }
+
+    public double getPRECIO_DIA() {
+        return PRECIO_DIA;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Turismo getTurismo() {
+        return turismo;
+    }
+
 }
