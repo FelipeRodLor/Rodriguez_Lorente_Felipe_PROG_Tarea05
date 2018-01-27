@@ -14,5 +14,9 @@ public class AlquilerVehiculos {
     private final int MAX_CLIENTES=100;
     private final int MAX_ALQUILERES=100;
     
+   private Cliente cliente;
+   private Alquiler alquiler;
+   private Turismo turismo;
+   
     
 }
