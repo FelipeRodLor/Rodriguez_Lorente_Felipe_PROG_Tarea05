@@ -10,13 +10,18 @@ package tarea05;
  * @author Felipillo
  */
 public class AlquilerVehiculos {
-    private final int MAX_TURISMOS=100;
-    private final int MAX_CLIENTES=100;
-    private final int MAX_ALQUILERES=100;
+    private final int MAX_TURISMOS = 100;
+    private final int MAX_CLIENTES = 100;
+    private final int MAX_ALQUILERES = 100;
     
-   private Cliente cliente;
-   private Alquiler alquiler;
-   private Turismo turismo;
+   private Cliente [] cliente;
+   private Alquiler [] alquiler;
+   private Turismo [] turismo;
    
+    public AlquilerVehiculos (){
+       cliente = new Cliente [MAX_CLIENTES];
+       alquiler = new Alquiler [MAX_ALQUILERES];
+       turismo = new Turismo [MAX_TURISMOS];
+    }
     
 }
