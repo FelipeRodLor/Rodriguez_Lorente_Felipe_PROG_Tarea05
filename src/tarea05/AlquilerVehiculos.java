@@ -10,57 +10,94 @@ package tarea05;
  * @author Felipillo
  */
 public class AlquilerVehiculos {
+
     private final int MAX_TURISMOS = 100;
     private final int MAX_CLIENTES = 100;
     private final int MAX_ALQUILERES = 100;
-    
-   private Cliente [] clientes;
-   private Alquiler [] alquileres;
-   private Turismo [] turismos;
-   
-    public AlquilerVehiculos (){
-       clientes = new Cliente [MAX_CLIENTES];
-       alquileres = new Alquiler [MAX_ALQUILERES];
-       turismos = new Turismo [MAX_TURISMOS];
+
+    private Cliente[] clientes;
+    private Alquiler[] alquileres;
+    private Turismo[] turismos;
+
+    public AlquilerVehiculos() {
+        clientes = new Cliente[MAX_CLIENTES];
+        alquileres = new Alquiler[MAX_ALQUILERES];
+        turismos = new Turismo[MAX_TURISMOS];
     }
 
     public Cliente[] getClientes() {
-        
+
         return clientes;
     }
 
     public Alquiler[] getAlquileres() {
-       
+
         return alquileres;
     }
 
     public Turismo[] getTurismos() {
-       
+
         return turismos;
     }
-    
-    public Cliente getCliente (String dni){
-        
-        int posicion=0;
+
+    public Cliente getCliente(String dni) {
+
+        int posicion = 0;
         boolean encontrado = false;
-        
-        while (posicion<clientes.length && !encontrado){
-        if (clientes[posicion]!= null && clientes [posicion].getDni().equals(dni)){
+
+        while (posicion < clientes.length && !encontrado) {
             
-            encontrado = true;
-        }else{
-            
-            posicion++;
-        }
+            if (clientes[posicion] != null && clientes[posicion].getDni().equals(dni)) {
+
+                encontrado = true;
+            } else {
+
+                posicion++;
             }
-        if (encontrado){
-            
+        }
+        if (encontrado) {
+
             return clientes[posicion];
-        
-        }else{
-            
+
+        } else {
+
             return null;
+        }
+
     }
-    
+
+    public void addCliente(Cliente cliente) {
+
+        int posicion = 0;
+        boolean disponible = false;
+
+        while (posicion < clientes.length && !disponible) {
+
+            if (clientes[posicion] == null) {
+
+                disponible = true;
+
+            } else {
+
+                if (clientes[posicion].getDni().equals(cliente.getDni())) {
+                    throw new ExcepcionAlquilerVehiculos("El cliente ya existe");
+
+                } else {
+
+                    posicion++;
+
+                }
+            }
+
+        }
+        if (disponible) {
+
+            clientes[posicion] = cliente;
+
+        } else {
+            
+            throw new ExcepcionAlquilerVehiculos ("Numero maximo de clientes superado. Se deben borrar clientes");
+            
+        }
     }
 }
