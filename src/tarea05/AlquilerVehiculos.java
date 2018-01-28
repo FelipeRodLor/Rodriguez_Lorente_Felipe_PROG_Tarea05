@@ -138,4 +138,24 @@ public class AlquilerVehiculos {
         }
     }
 
+    public void delTurismo(String matricula) {
+
+        int posicion = 0;
+        boolean existe = false;
+        while (posicion < turismos.length && !existe) {
+            if (turismos[posicion] != null && turismos[posicion].getMatricula().equals(matricula)) {
+                existe = true;
+            } else {
+                posicion++;
+            }
+            if (existe) {
+                for (int i = posicion; i < turismos.length - 1; i++) {
+                    turismos[i] = turismos[i + 1];
+                }
+                turismos[turismos.length - 1] = null;
+            } else {
+                throw new ExcepcionAlquilerVehiculos("El turismo introducido no existe");
+            }
+        }
+    }
 }
