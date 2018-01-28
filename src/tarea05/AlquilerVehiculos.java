@@ -14,28 +14,53 @@ public class AlquilerVehiculos {
     private final int MAX_CLIENTES = 100;
     private final int MAX_ALQUILERES = 100;
     
-   private Cliente [] cliente;
-   private Alquiler [] alquiler;
-   private Turismo [] turismo;
+   private Cliente [] clientes;
+   private Alquiler [] alquileres;
+   private Turismo [] turismos;
    
     public AlquilerVehiculos (){
-       cliente = new Cliente [MAX_CLIENTES];
-       alquiler = new Alquiler [MAX_ALQUILERES];
-       turismo = new Turismo [MAX_TURISMOS];
+       clientes = new Cliente [MAX_CLIENTES];
+       alquileres = new Alquiler [MAX_ALQUILERES];
+       turismos = new Turismo [MAX_TURISMOS];
     }
 
-    public Cliente[] getCliente() {
-        return cliente;
+    public Cliente[] getClientes() {
+        
+        return clientes;
     }
 
-    public Alquiler[] getAlquiler() {
-        return alquiler;
+    public Alquiler[] getAlquileres() {
+       
+        return alquileres;
     }
 
-    public Turismo[] getTurismo() {
-        return turismo;
+    public Turismo[] getTurismos() {
+       
+        return turismos;
     }
     
+    public Cliente getCliente (String dni){
+        
+        int posicion=0;
+        boolean encontrado = false;
+        
+        while (posicion<clientes.length && !encontrado){
+        if (clientes[posicion]!= null && clientes [posicion].getDni().equals(dni)){
+            
+            encontrado = true;
+        }else{
+            
+            posicion++;
+        }
+            }
+        if (encontrado){
+            
+            return clientes[posicion];
+        
+        }else{
+            
+            return null;
+    }
     
-    
+    }
 }
