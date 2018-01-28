@@ -158,4 +158,25 @@ public class AlquilerVehiculos {
             }
         }
     }
+
+    public void openAlquiler(Cliente cliente, Turismo turismo) {
+        int posicion = 0;
+        boolean disponible = false;
+
+        if (turismo.getDisponible()) {
+            while (posicion < alquileres.length && !disponible) {
+                if (alquileres[posicion] == null) {
+                    disponible = true;
+                } else {
+                    posicion++;
+                }
+            }
+            if (disponible) {
+                alquileres[posicion] = new Alquiler(cliente, turismo);
+            }
+        } else {
+            throw new ExcepcionAlquilerVehiculos("El turismo introducido se encuentra alquilado");
+
+        }
+    }
 }
