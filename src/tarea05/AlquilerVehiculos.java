@@ -26,17 +26,14 @@ public class AlquilerVehiculos {
     }
 
     public Cliente[] getClientes() {
-
         return clientes;
     }
 
     public Alquiler[] getAlquileres() {
-
         return alquileres;
     }
 
     public Turismo[] getTurismos() {
-
         return turismos;
     }
 
@@ -44,60 +41,60 @@ public class AlquilerVehiculos {
 
         int posicion = 0;
         boolean encontrado = false;
-
         while (posicion < clientes.length && !encontrado) {
-            
             if (clientes[posicion] != null && clientes[posicion].getDni().equals(dni)) {
-
                 encontrado = true;
             } else {
-
                 posicion++;
             }
         }
         if (encontrado) {
-
             return clientes[posicion];
-
         } else {
-
             return null;
         }
-
     }
 
     public void addCliente(Cliente cliente) {
 
         int posicion = 0;
         boolean disponible = false;
-
         while (posicion < clientes.length && !disponible) {
-
             if (clientes[posicion] == null) {
-
                 disponible = true;
-
             } else {
-
                 if (clientes[posicion].getDni().equals(cliente.getDni())) {
                     throw new ExcepcionAlquilerVehiculos("El cliente ya existe");
-
                 } else {
-
                     posicion++;
-
                 }
             }
-
         }
         if (disponible) {
-
             clientes[posicion] = cliente;
-
         } else {
-            
-            throw new ExcepcionAlquilerVehiculos ("Numero maximo de clientes superado. Se deben borrar clientes");
-            
+            throw new ExcepcionAlquilerVehiculos("Numero maximo de clientes superado. Se deben borrar clientes");
+        }
+    }
+
+    public void delCliente(String dni) {
+
+        int posicion = 0;
+        boolean existe = false;
+        while (posicion < clientes.length && !existe) {
+            if (clientes[posicion] != null && clientes[posicion].getDni().equals(dni)) {
+                existe = true;
+            } else {
+                posicion++;
+            }
+            if (existe) {
+                for (int i = posicion; i < clientes.length - 1; i++) {
+                    clientes[i] = clientes[i + 1];
+                }
+                clientes[clientes.length - 1] = null;
+            } else {
+                throw new ExcepcionAlquilerVehiculos("El cliente introducido no existe");
+            }
         }
     }
 }
