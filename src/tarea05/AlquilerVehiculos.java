@@ -64,7 +64,7 @@ public class AlquilerVehiculos {
                 disponible = true;
             } else {
                 if (clientes[posicion].getDni().equals(cliente.getDni())) {
-                    throw new ExcepcionAlquilerVehiculos("El cliente ya existe");
+                    throw new ExcepcionAlquilerVehiculos("El cliente introducido ya existe");
                 } else {
                     posicion++;
                 }
@@ -115,4 +115,27 @@ public class AlquilerVehiculos {
             return null;
         }
     }
+
+    public void addTurismo(Turismo turismo) {
+
+        int posicion = 0;
+        boolean disponible = false;
+        while (posicion < turismos.length && !disponible) {
+            if (turismos[posicion] == null) {
+                disponible = true;
+            } else {
+                if (turismos[posicion].getMatricula().equals(turismo.getMatricula())) {
+                    throw new ExcepcionAlquilerVehiculos("El turismo introducido ya existe");
+                } else {
+                    posicion++;
+                }
+            }
+        }
+        if (disponible) {
+            turismos[posicion] = turismo;
+        } else {
+            throw new ExcepcionAlquilerVehiculos("Numero maximo de turismos superado. Se deben borrar turismos");
+        }
+    }
+
 }
