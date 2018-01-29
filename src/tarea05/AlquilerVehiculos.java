@@ -175,8 +175,27 @@ public class AlquilerVehiculos {
                 alquileres[posicion] = new Alquiler(cliente, turismo);
             }
         } else {
-            throw new ExcepcionAlquilerVehiculos("El turismo introducido se encuentra alquilado");
+            throw new ExcepcionAlquilerVehiculos("El registro de alquileres esta lleno. Se deben eliminar registros");
 
+        }
+    }
+
+    public void closeAlquiler(Cliente cliente, Turismo turismo) {
+        int posicion = 0;
+        boolean existe = false;
+
+        while (posicion < alquileres.length && !existe) {
+            if (alquileres[posicion] != null && alquileres[posicion].getCliente().equals(cliente) && alquileres[posicion].getTurismo().equals(turismo)) {
+                existe = true;
+            } else {
+                posicion++;
+            }
+        }
+        if (existe) {
+            alquileres[posicion].close();
+
+        } else {
+            throw new ExcepcionAlquilerVehiculos("El alquiler que se desea cerrar no existe");
         }
     }
 }
