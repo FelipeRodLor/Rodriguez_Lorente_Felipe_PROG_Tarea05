@@ -171,13 +171,14 @@ public class AlquilerVehiculos {
                     posicion++;
                 }
             }
-            if (disponible) {
-                alquileres[posicion] = new Alquiler(cliente, turismo);
-            }
+        }
+        if (disponible) {
+            alquileres[posicion] = new Alquiler(cliente, turismo);
+
         } else {
             throw new ExcepcionAlquilerVehiculos("El registro de alquileres esta lleno. Se deben eliminar registros");
-
         }
+        turismo.setDisponible(false);
     }
 
     public void closeAlquiler(Cliente cliente, Turismo turismo) {
@@ -192,10 +193,14 @@ public class AlquilerVehiculos {
             }
         }
         if (existe) {
-            alquileres[posicion].close();
+            for (int i = posicion; i < alquileres.length - 1; i++) {
+                alquileres[i] = alquileres[i + 1];
+            }
+            alquileres[alquileres.length - 1] = null;
 
         } else {
             throw new ExcepcionAlquilerVehiculos("El alquiler que se desea cerrar no existe");
         }
+        turismo.setDisponible(true);
     }
 }

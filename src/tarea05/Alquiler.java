@@ -17,7 +17,7 @@ public class Alquiler {
 
     private Date fecha;
     private int dias;
-    private final SimpleDateFormat FORMATO_FECHA = new SimpleDateFormat ("dd/MM/yyyy HH;mm");
+    private final SimpleDateFormat FORMATO_FECHA = new SimpleDateFormat("dd/MM/yyyy HH;mm");
     private final int MS_DIA = 1000 * 60 * 60 * 24;
     private final double PRECIO_DIA = 30;
     private Cliente cliente;
@@ -62,11 +62,13 @@ public class Alquiler {
         return (int) diasAlq + 1;
 
     }
+
     public double getPrecio() {
         return PRECIO_DIA * dias + turismo.getCilindrada() / 100;
     }
-    public String toString(){
-        return ("Fecha de alquiler; " + FORMATO_FECHA.format(fecha) + "Cliente; " + cliente + " Vehiculo aquilado; " + turismo);
+
+    public String toString() {
+        return ("FECHA DE ALQUILER; " + FORMATO_FECHA.format(fecha) + " CLIENTE; " + cliente + " VEHICULO ALQUILADO; " + turismo);
     }
 
 }

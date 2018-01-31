@@ -21,7 +21,6 @@ public class Cliente {
     private String codigoPostal;
     private int identificador;
     private static int numClientes;
-    
 
     public Cliente(String nombre, String dni, String direccion, String localidad, String codigoPostal) {
 
@@ -39,14 +38,14 @@ public class Cliente {
         } else {
             throw new ExcepcionAlquilerVehiculos("El Codigo postal introducido no es correcto");
         }
-        
+
         numClientes++;
         identificador = numClientes;
 
     }
 
     private boolean compruebaDni(String dni) {
-        Pattern patron = Pattern.compile("[0-9]{8}[a-zZ-a]{1}");
+        Pattern patron = Pattern.compile("([0-9]){8}([a-zA-Z]){1}");
         Matcher emparejador;
         emparejador = patron.matcher(dni);
 
@@ -55,7 +54,7 @@ public class Cliente {
     }
 
     private boolean compruebaCodigoPostal(String codigoPostal) {
-        Pattern patron = Pattern.compile("([0-9] {5})");
+        Pattern patron = Pattern.compile("([0-9]){5}");
         Matcher emparejador;
         emparejador = patron.matcher(codigoPostal);
 
@@ -103,7 +102,7 @@ public class Cliente {
 
     public String toString() {
 
-        return (dni + nombre + direccion + localidad + codigoPostal);
+        return (" DNI; " + dni + " NOMBRE; " + nombre + " DIRECCION; " + direccion + " LOCALIDAD; " + localidad + " CODIGOPOSTAL; " + codigoPostal + " ID; " + identificador);
     }
 
 }
